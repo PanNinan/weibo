@@ -69,7 +69,7 @@ class UsersController extends Controller
         $user = User::where('activation_token', $token)->firstOrFail();
 
         $user->activated = true;
-        $user->activation_token =null;
+        $user->activation_token = null;
         $user->save();
 
         Auth::login($user);
