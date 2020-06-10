@@ -55,4 +55,15 @@ class User extends Authenticatable
         $hash = md5(strtolower(trim($this->attributes['email'])));
         return "http://www.gravatar.com/avatar/$hash?s=$size";
     }
+
+    /**
+     * [用户绑定动态]
+     * @Author: PanNiNan
+     * @Date  : 2020/6/10
+     * @Time  : 8:33
+     */
+    public function statuses()
+    {
+        $this->hasMany(Status::class);
+    }
 }
