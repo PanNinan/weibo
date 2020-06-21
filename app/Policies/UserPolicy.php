@@ -33,8 +33,31 @@ class UserPolicy
         return $currentUser->id === $user->id;
     }
 
+    /**
+     * [删除用户授权]
+     * @Author: PanNiNan
+     * @Date  : 2020/6/21
+     * @Time  : 17:47
+     * @param User $currentUser
+     * @param User $user
+     * @return bool
+     */
     public function destroy(User $currentUser, User $user)
     {
         return $currentUser->is_admin && $currentUser->id !== $user->id;
+    }
+
+    /**
+     * [关注用户授权]
+     * @Author: PanNiNan
+     * @Date  : 2020/6/21
+     * @Time  : 17:47
+     * @param User $currentUserr
+     * @param User $user
+     * @return bool
+     */
+    public function follow(User $currentUserr, User $user)
+    {
+        return $currentUserr !== $user;
     }
 }
